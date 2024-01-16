@@ -1,0 +1,155 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import NavLink from "./NavLink.astro";
+---
+
+<style>
+  #nav {
+    flex: 0 0 288px;
+  }
+</style>
+
+<div
+  id="nav"
+  class="xl:w-[15%] lg:w-[100vw] w-[100%] xl:sticky absolute xl:top-0 top-14 xl:right-0 right-[200em] z-20 xl:p-0 p-8">
+  <div
+    class="lg:p-8 bg-[var(--bg-secondary)] xl:h-[100vh] h-[100%] px-7 py-8 xl:border-r-[var(--border-gray)] xl:border-r xl:rounded-none rounded-lg md:flex md:gap-12 xl:block">
+    <div class="flex gap-4 flex-col mb-6 xl:mb-0">
+      <img
+        src="../../public/portrait.jpg"
+        alt="niel"
+        class="xl:w-16 w-12 rounded-full"
+      />
+      <div>
+        <p class="text-lg font-medium">Niel Montesa</p>
+        <p class="text-[#7c7c7c] text-base">Designer & Developer</p>
+      </div>
+    </div>
+
+    <div class="xl:mt-6">
+      <ul id="navbar flex">
+        <NavLink text="Home" icon="mdi:home-outline" link="/" target="" />
+        <NavLink
+          text="Web Design"
+          icon="mdi:web"
+          link="/web-design"
+          target=""
+        />
+        <NavLink
+          text="Social Media"
+          icon="mdi:tablet-cellphone"
+          link="/social-media"
+          target=""
+        />
+        <NavLink
+          text="Book Covers"
+          icon="mdi:book-multiple-outline"
+          link="/book-covers"
+          target=""
+        />
+        <NavLink text="Posters" icon="mdi:image" link="/posters" target="" />
+        <NavLink text="Writing" icon="mdi:pen" link="/writing" target="" />
+        <NavLink
+          text="About Me"
+          icon="mdi:account-outline"
+          link="/about"
+          target=""
+        />
+      </ul>
+    </div>
+    <nav class="xl:mt-6 mt-2">
+      <ul>
+        <span
+          class="text-xs text-[var(--primary-gray)] uppercase p-2 font-normal"
+          >Connect With Me</span
+        >
+        <NavLink
+          text="Contact"
+          icon="mdi:email-outline"
+          link="/contact"
+          target=""
+        />
+        <NavLink
+          text="Instagram"
+          icon="mdi:instagram"
+          link="https://www.instagram.com/nielmontesa"
+          target="_blank"
+        />
+        <NavLink
+          text="Behance"
+          icon="mdi:behance"
+          link="https://www.behance.net/nielm"
+          target="_blank"
+        />
+        <NavLink
+          text="Medium"
+          icon="mdi:medium"
+          link="https://medium.com/@nielmontesa"
+          target="_blank"
+        />
+        <NavLink
+          text="LinkedIn"
+          icon="mdi:linkedin"
+          link="https://www.linkedin.com/in/nielivanmontesa"
+          target="_blank"
+        />
+      </ul>
+    </nav>
+    <!-- <div class="mt-12">Search</div> -->
+    <ViewTransitions />
+  </div>
+</div>
+<button
+  class="xl:hidden ml-8 mt-8 px-2 py-1 text-3xl bg-[var(--bg-secondary)] rounded-lg text-[var(--ternary-gray)] focus:text-[var(--primary-white)] transition-all border border-[var(--border-gray)]"
+  id="toggleButton">
+  ☰
+</button>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    document
+      .getElementById("toggleButton")
+      .addEventListener("click", function () {
+        var button = document.getElementById("toggleButton");
+        var navDiv = document.getElementById("nav");
+
+        // Check if the 'right-96' class is present
+        var hasRight96Class = navDiv.classList.contains("right-[200em]");
+
+        // Toggle the 'right-96' class based on its current state
+        if (hasRight96Class) {
+          navDiv.classList.remove("right-[200em]");
+          button.textContent = "X";
+        } else {
+          navDiv.classList.add("right-[200em]");
+          button.textContent = "☰";
+        }
+      });
+    const navLinks = document.querySelectorAll("a");
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+
+      // `slice` here to remove the first `/` in pathname
+      const currentPath = window.location.pathname.slice(1);
+
+      // `link.href` returns a whole url, such as: "https://somedomain.com/posts" and we only need the last part
+      const hrefArray = link.href.split("/");
+      const thisPath = hrefArray[hrefArray.length - 1];
+
+      // Check if the current path is exactly "/"
+      if (currentPath === "" && thisPath === "") {
+        link.classList.add("active");
+      }
+
+      // Check if the current path starts with the link's path
+      if (
+        currentPath.startsWith(thisPath) &&
+        currentPath !== "" &&
+        thisPath !== ""
+      ) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>

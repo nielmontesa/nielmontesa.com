@@ -1,0 +1,30 @@
+---
+const { text, link, icon, target } = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+
+<style>
+  .active {
+    background-color: var(--button-gray);
+    color: var(--primary-white);
+    box-shadow:
+      0px 0px 2px 1px rgba(0, 0, 0, 0.05) inset,
+      0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    border: 1px solid #3c3c3c;
+  }
+
+  a:active {
+    color: var(--ternary-gray);
+  }
+</style>
+
+<a
+  href={link}
+  class="w-full flex text-[var(--primary-gray)] font-normal hover:text-[var(--primary-white)] p-2 rounded-lg
+    active:[var(--ternary-gray)] transition-all border border-[var(--bg-secondary)] transition-all"
+  target={target}>
+  <li class="flex items-center gap-2">
+    <Icon name={icon} class="inline bg-inherit" />
+    {text}
+  </li>
+</a>

@@ -1,0 +1,78 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  id="copyButton"
+  class="flex items-center gap-2 bg-[var(--bg-secondary)] px-4 py-2 rounded-lg text-[var(--primary-white)] hover:text-[var(--ternary-gray)] transition-all active:bg-[var(--button-gray)]">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="currentColor">
+    <title>content-copy</title>
+    <path
+      d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+    ></path>
+  </svg>
+  E-Mail
+</button>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", function () {
+    // Get the button element
+    var copyButton = document.getElementById("copyButton");
+    var originalContent = copyButton.innerHTML;
+
+    // Email to copy
+    var emailToCopy = "design@nielmontesa.com";
+
+    // Add click event listener
+    copyButton.addEventListener("click", function () {
+      // Create a textarea element to hold the text to copy
+      var textArea = document.createElement("textarea");
+      textArea.value = emailToCopy;
+      document.body.appendChild(textArea);
+
+      // Select the text inside the textarea
+      textArea.select();
+
+      try {
+        // Execute copy command
+        document.execCommand("copy");
+        // Change the button text to 'Copied!'
+        copyButton.innerHTML = "Copied!";
+
+        // Create a new svg element with the desired path
+        var checkSvg = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "svg"
+        );
+        checkSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        checkSvg.setAttribute("viewBox", "0 0 24 24");
+        checkSvg.setAttribute("width", "16");
+        checkSvg.setAttribute("height", "16");
+        checkSvg.innerHTML =
+          '<title>check</title><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />';
+        // Set styles to match button text color and hover effects
+        checkSvg.setAttribute("fill", "currentColor");
+
+        // Insert the new svg element before the text content
+        copyButton.insertBefore(checkSvg, copyButton.firstChild);
+      } catch (err) {
+        console.error("Unable to copy", err);
+      }
+
+      // Remove the textarea from the document
+      document.body.removeChild(textArea);
+
+      // You may want to reset the text and remove the appended svg after some time (e.g., 2 seconds)
+      setTimeout(function () {
+        // Reset the button text and content to the original state
+        copyButton.innerHTML = originalContent;
+        copyButton.removeChild(copyButton.firstChild);
+      }, 2000);
+    });
+  });
+</script>

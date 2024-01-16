@@ -1,0 +1,47 @@
+---
+const { post } = Astro.props;
+
+const { alt, img, url } = post.frontmatter;
+---
+
+<div class="opacity-60 hover:opacity-100 transition-all">
+  <a href={img} target="_blank" data-fancybox>
+    <img
+      class="rounded border border-[var(--border-gray)] w-100"
+      src={img}
+      alt={alt}
+      class="/"
+    />
+  </a>
+</div>
+
+<style>
+  div {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+  }
+</style>
+
+<script>
+  // Include Lightbox
+  import { Fancybox } from "@fancyapps/ui";
+  import "@fancyapps/ui/dist/fancybox/fancybox.css";
+  document.addEventListener("astro:page-load", () => {
+    Fancybox.bind("[data-fancybox]", {
+      contentClick: "toggleCover",
+      Images: {
+        Panzoom: {
+          panMode: "mousemove",
+          mouseMoveFactor: 1.1,
+          mouseMoveFriction: 0.12,
+        },
+      },
+    });
+  });
+
+  // document.addEventListener("astro:page-load", () => {
+
+  //   });
+</script>

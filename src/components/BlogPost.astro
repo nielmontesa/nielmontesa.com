@@ -1,0 +1,17 @@
+---
+const { post } = Astro.props;
+
+const { title, description } = post.frontmatter;
+---
+
+<div
+  class="transition-all mb-4 rounded-lg py-4 hover:text-[var(--primary-white)] text-[var(--primary-gray)]">
+  <a href={post.url} class="flex gap-2 rounded-lg">
+    <div>
+      <h1 class="text-base font-bold">{title}</h1>
+      <p class="mt-2">{description}</p>
+    </div>
+  </a>
+</div>
+
+<style></style>

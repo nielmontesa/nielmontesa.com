@@ -1,0 +1,55 @@
+<footer>
+  <ul
+    class="flex flex-col lg:flex-row gap-12 text-sm items-center py-12 lg:px-64 border-t border-t-[var(--border-gray)] text-[var(--ternary-gray)]">
+    <li>
+      Website heavily Inspired By <a
+        class="underline"
+        href="https://dashfolio.framer.website/"
+        target="_blank">Dashfolio</a
+      >
+    </li>
+    <li>
+      Proudly coded using <a
+        class="underline"
+        href="https://astro.build/"
+        target="_blank">astro.build</a
+      >
+    </li>
+    <li>© Niel Montesa 2023</li>
+    <li>
+      <a
+        class="underline text-[var(--ternary-gray)] font-medium"
+        href="#"
+        id="scrollToTopLink"
+        onclick="scrollToTop()">Jump to Top</a
+      >
+    </li>
+  </ul>
+</footer>
+
+<script>
+  // Get the link
+  var scrollToTopLink = document.getElementById("scrollToTopLink");
+
+  // When the user scrolls down 20px from the top of the document, show the link
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      scrollToTopLink.style.display = "block";
+    } else {
+      scrollToTopLink.style.display = "none";
+    }
+  }
+
+  // When the link is clicked, scroll to the top of the document
+  function scrollToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>

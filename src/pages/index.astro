@@ -1,16 +1,46 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import EmailButton from "../components/EmailButton.astro";
+import Button from "../components/Button.astro";
+import Website from "../components/Website.astro";
+import BookCovers from "./book-covers.astro";
+import Book from "../components/Book.astro";
+import Design from "../components/Design.astro";
 
+const allPosts = await Astro.glob("./web-design/*.md");
+const bookPosts = await Astro.glob("./designs/*.md");
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Niel Montesa - Designer & Developer">
+  <h1 class="text-6xl font-bold">
+    Hello stranger, I'm Niel. <br />
+  </h1>
+  <p class="text-base leading-7 mt-4 text-[var(--ternary-gray)]">
+    I am a freelance designer and developer ready to help you grow yourself or
+    your business through <br /> beautiful and effective design. I can help you with
+    web design, social media graphics, book covers, and posters. <br /> Currently
+    open for freelance work.
+  </p>
+
+  <div class="buttons mt-6 flex gap-2">
+    <Button icon="mdi:email-outline" buttonText="Contact" link="/contact" />
+    <EmailButton />
+  </div>
+  <div>
+    <p class="mt-16 text-xs text-[var(--ternary-gray)] uppercase font-normal">
+      Featured Web Design Work
+    </p>
+    <div class="mt-4 columns-1 lg:columns-2 gap-2 max-w-[100%]">
+      {allPosts.map((post) => <Website {post} />)}
+    </div>
+  </div>
+
+  <div>
+    <p class="mt-16 text-xs text-[var(--ternary-gray)] uppercase font-normal">
+      Featured Graphic Design Work
+    </p>
+    <div class="mt-4 columns-1 lg:columns-2 gap-2 max-w-[100%]">
+      {bookPosts.map((post) => <Design {post} />)}
+    </div>
+  </div>
+</MainLayout>

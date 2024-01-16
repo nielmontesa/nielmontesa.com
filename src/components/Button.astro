@@ -1,0 +1,13 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { buttonText, icon, link, target } = Astro.props;
+---
+
+<a href={link} target={target}>
+  <button
+    class="flex items-center gap-2 bg-[var(--bg-secondary)] px-4 py-2 rounded-lg text-[var(--primary-white)] hover:text-[var(--ternary-gray)] border-[var(--border-gray)] border transition-all">
+    <Icon name={icon} class="inline bg-inherit" />
+    {buttonText}</button
+  >
+</a>

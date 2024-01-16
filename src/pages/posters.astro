@@ -1,0 +1,24 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import Design from "../components/Design.astro";
+
+const allPosts = await Astro.glob("./designs/*.md");
+---
+
+<MainLayout title="Niel Montesa - Posters]">
+  <h1 class="text-6xl font-bold">Posters</h1>
+  <p class="text-base leading-7 mt-4 text-[var(--ternary-gray)]">
+    A collection of my work on designing posters. <br />
+  </p>
+  <div class="mt-8 columns-1 lg:columns-2 gap-2 max-w-[100%]">
+    {
+      allPosts.map((post) => {
+        console.log(post.frontmatter.type);
+        if (post.frontmatter.type == "poster") {
+          return <Design {post} />;
+        }
+      })
+    }
+  </div>
+</MainLayout>

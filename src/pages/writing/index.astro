@@ -1,0 +1,18 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Button from "../../components/Button.astro";
+import BlogPost from "../../components/BlogPost.astro";
+const allPosts = await Astro.glob("./*.mdx");
+---
+
+<MainLayout title="Niel Montesa - Web Design">
+  <h1 class="text-6xl font-bold">Writing</h1>
+  <p class="text-base leading-7 mt-4 text-[var(--ternary-gray)]">
+    A collection of my writing, ranging from blog posts and design guides to
+    opinionated discourse about film or music.
+  </p>
+
+  <div class="mt-8">
+    {allPosts.map((post) => <BlogPost {post} />)}
+  </div>
+</MainLayout>

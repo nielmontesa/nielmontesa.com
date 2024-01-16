@@ -1,0 +1,13 @@
+---
+import "../styles/global.css";
+
+const { cardTitle, cardBody } = Astro.props;
+---
+
+<div
+  class="bg-[var(--border-gray)] border-[var(--border-gray)] border-[1px] rounded-lg p-6">
+  <span class="uppercase text-xs font-bold text-[var(--ternary-gray)]"
+    >{cardTitle}</span
+  >
+  <div class="">{cardBody}</div>
+</div>

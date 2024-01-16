@@ -1,0 +1,146 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import EmailButton from "../components/EmailButton.astro";
+import { Icon } from "astro-icon/components";
+const allPosts = await Astro.glob("./web-design/*.md");
+---
+
+<MainLayout title="Niel Montesa - Designer & Developer">
+  <h1 class="text-6xl font-bold">Let's connect.</h1>
+  <p class="text-base leading-7 mt-4 text-[var(--ternary-gray)] lg:w-3/4">
+    If you have a project in mind, a design or dev problem, or if you just want
+    to tell me about your day - feel free to reach out! <br />
+
+    <div class="mt-4">
+      <EmailButton />
+    </div>
+  </p>
+
+  <div
+    class="mt-8 bg-[var(--bg-secondary)] p-4 rounded-lg border border-[var(--border-gray)]">
+    <p class="text-base font-medium">Contact Form</p>
+    <form action="#" class="flex mt-4 flex-col gap-4">
+      <div class="flex gap-4 lg:flex-row flex-col">
+        <input
+          class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
+          type="text"
+          placeholder="Your name"
+          required
+        />
+        <input
+          class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
+          type="text"
+          placeholder="Your e-mail"
+          required
+        />
+      </div>
+      <textarea
+        class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
+        required
+        rows="10"
+        placeholder="Your message"></textarea>
+      <button
+        type="submit"
+        id="submit"
+        class="bg-[var(--button-gray)] text-[var(--primary-white)] hover:shadow-lg hover:scale-[1.005] transition-all flex items-center p-4 justify-center gap-2 rounded-md active:bg-[var(--border-gray)]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="currentColor">
+          <title>content-copy</title>
+          <path
+            d="M8,7.71L18,12L8,16.29V12.95L15.14,12L8,11.05V7.71M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"
+          ></path>
+        </svg>
+        Send Message
+      </button>
+    </form>
+  </div>
+</MainLayout>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", function () {
+    // Get the button element
+    var copyButton = document.getElementById("submit");
+    var originalContent = copyButton.innerHTML;
+
+    // Email to copy
+    var emailToCopy = "design@nielmontesa.com";
+
+    // Add click event listener
+    copyButton.addEventListener("click", function (event) {
+      // Check if form fields are filled
+      var nameInput = document.querySelector('input[placeholder="Your name"]');
+      var emailInput = document.querySelector(
+        'input[placeholder="Your e-mail"]'
+      );
+      var messageInput = document.querySelector(
+        'textarea[placeholder="Your message"]'
+      );
+
+      if (
+        nameInput.value.trim() === "" ||
+        emailInput.value.trim() === "" ||
+        messageInput.value.trim() === ""
+      ) {
+        // If any of the fields is empty, do not proceed
+        return;
+      }
+
+      // Prevent the default form submission
+      event.preventDefault();
+
+      // Create a textarea element to hold the text to copy
+      var textArea = document.createElement("textarea");
+      textArea.value = emailToCopy;
+      document.body.appendChild(textArea);
+
+      // Select the text inside the textarea
+      textArea.select();
+
+      try {
+        // Execute copy command
+        document.execCommand("copy");
+        // Change the button text to 'Message sent!'
+        copyButton.innerHTML = "Message sent!";
+
+        // Create a new svg element with the desired path
+        var checkSvg = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "svg"
+        );
+        checkSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        checkSvg.setAttribute("viewBox", "0 0 24 24");
+        checkSvg.setAttribute("width", "16");
+        checkSvg.setAttribute("height", "16");
+        checkSvg.innerHTML =
+          '<title>check</title><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />';
+        // Set styles to match button text color and hover effects
+        checkSvg.setAttribute("fill", "currentColor");
+
+        // Insert the new svg element before the text content
+        copyButton.insertBefore(checkSvg, copyButton.firstChild);
+      } catch (err) {
+        console.error("Unable to copy", err);
+      }
+
+      // Remove the textarea from the document
+      document.body.removeChild(textArea);
+
+      // You may want to reset the text and remove the appended svg after some time (e.g., 2 seconds)
+      setTimeout(function () {
+        // Reset the button text and content to the original state
+        copyButton.innerHTML = originalContent;
+        copyButton.removeChild(copyButton.firstChild);
+      }, 5000);
+
+      // Manually submit the form after the copy action
+      var form = copyButton.closest("form");
+      if (form) {
+        form.submit();
+      }
+    });
+  });
+</script>
