@@ -15,7 +15,6 @@ const allPosts = await Astro.glob("./designs/*.md");
   <div class="mt-8 columns-1 lg:columns-2 gap-2 max-w-[100%]">
     {
       allPosts.map((post) => {
-        console.log(post.frontmatter.type);
         if (post.frontmatter.type == "book") {
           return <Design {post} />;
         }

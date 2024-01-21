@@ -16,7 +16,7 @@ import NavLink from "./NavLink.astro";
     class="lg:p-8 bg-[var(--bg-secondary)] xl:h-[100vh] h-[100%] px-7 py-8 xl:border-r-[var(--border-gray)] xl:border-r xl:rounded-none rounded-lg md:flex md:gap-12 xl:block">
     <div class="flex gap-4 flex-col mb-6 xl:mb-0">
       <img
-        src="../../public/portrait.jpg"
+        src="../../portrait.jpg"
         alt="niel"
         class="xl:w-16 w-12 rounded-full"
       />
@@ -29,12 +29,12 @@ import NavLink from "./NavLink.astro";
     <div class="xl:mt-6">
       <ul id="navbar flex">
         <NavLink text="Home" icon="mdi:home-outline" link="/" target="" />
-        <NavLink
+        <!-- <NavLink
           text="Web Design"
           icon="mdi:web"
           link="/web-design"
           target=""
-        />
+        /> -->
         <NavLink
           text="Social Media"
           icon="mdi:tablet-cellphone"
@@ -48,7 +48,14 @@ import NavLink from "./NavLink.astro";
           target=""
         />
         <NavLink text="Posters" icon="mdi:image" link="/posters" target="" />
+        <NavLink
+          text="Merch Design"
+          icon="mdi:tshirt-v-outline"
+          link="/merch"
+          target=""
+        />
         <NavLink text="Writing" icon="mdi:pen" link="/writing" target="" />
+
         <NavLink
           text="About Me"
           icon="mdi:account-outline"
@@ -73,6 +80,12 @@ import NavLink from "./NavLink.astro";
           text="Instagram"
           icon="mdi:instagram"
           link="https://www.instagram.com/nielmontesa"
+          target="_blank"
+        />
+        <NavLink
+          text="Twitter"
+          icon="mdi:twitter"
+          link="https://twitter.com/nielmontesa"
           target="_blank"
         />
         <NavLink

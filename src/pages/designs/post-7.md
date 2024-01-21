@@ -1,5 +1,5 @@
 ---
 title: Bruh
-img: "../../public/socmed4.png"
+img: "../../socmed4.png"
 type: socmed
 ---

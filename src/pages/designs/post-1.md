@@ -1,6 +1,6 @@
 ---
 alt: Website
-img: "../../public/leg.png"
+img: "../../leg.png"
 url: https://www.behance.net/nielm
 type: book
 ---

@@ -1,5 +1,5 @@
 ---
 title: Bruh
-img: "../../public/deceit.png"
+img: "../../deceit.png"
 type: book
 ---

@@ -1,5 +1,5 @@
 ---
 title: Bruh
-img: "../../public/ripped.png"
+img: "../../ripped.png"
 type: book
 ---
