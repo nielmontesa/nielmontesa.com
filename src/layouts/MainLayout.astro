@@ -8,12 +8,17 @@ import { SEO } from "astro-seo";
 
 <html lang="en">
   <head>
-    <SEO title={title} description="Niel Montesa - Designer & Developer" />
+    <SEO
+      title={title}
+      description="Niel Montesa - Designer & Developer"
+      noindex="false"
+    />
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/portrait.jpg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="flex xl:flex-row flex-col items-start">
     <NavBar />
