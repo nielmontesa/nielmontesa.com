@@ -96,9 +96,6 @@ const allPosts = await Astro.glob("./web-design/*.md");
         return;
       }
 
-      // Prevent the default form submission
-      event.preventDefault();
-
       // Create a textarea element to hold the text to copy
       var textArea = document.createElement("textarea");
       textArea.value = emailToCopy;
@@ -129,6 +126,9 @@ const allPosts = await Astro.glob("./web-design/*.md");
 
         // Insert the new svg element before the text content
         copyButton.insertBefore(checkSvg, copyButton.firstChild);
+
+        // Log a message indicating successful form submission
+        console.log("Form submitted successfully!");
       } catch (err) {
         console.error("Unable to copy", err);
       }
