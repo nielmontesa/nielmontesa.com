@@ -1,6 +1,5 @@
 ---
-alt: Website
+alt: "Book design for a fake book."
 img: "../../leg.png"
-url: https://www.behance.net/nielm
 type: book
 ---

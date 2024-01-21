@@ -18,13 +18,13 @@ import { Icon } from "astro-icon/components";
   }
 </style>
 
-<a
-  href={link}
-  class="w-full flex text-[var(--primary-gray)] font-normal hover:text-[var(--primary-white)] p-2 rounded-lg
-    active:[var(--ternary-gray)] transition-all border border-[var(--bg-secondary)] transition-all"
-  target={target}>
-  <li class="flex items-center gap-2">
+<li class="">
+  <a
+    class="flex items-center gap-2 w-full text-[var(--primary-gray)] font-normal hover:text-[var(--primary-white)] p-2 rounded-lg
+    active:[var(--ternary-gray)] border border-[var(--bg-secondary)] transition-all"
+    href={link}
+    target={target}>
     <Icon name={icon} class="inline bg-inherit" />
     {text}
-  </li>
-</a>
+  </a>
+</li>
