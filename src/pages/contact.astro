@@ -19,7 +19,11 @@ const allPosts = await Astro.glob("./web-design/*.md");
   <div
     class="mt-8 bg-[var(--bg-secondary)] p-4 rounded-lg border border-[var(--border-gray)]">
     <p class="text-base font-medium">Contact Form</p>
-    <form action="#" class="flex mt-4 flex-col gap-4" netlify>
+    <form
+      method="POST"
+      class="flex mt-4 flex-col gap-4"
+      name="contact"
+      data-netlify="true">
       <div class="flex gap-4 lg:flex-row flex-col">
         <input
           class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
