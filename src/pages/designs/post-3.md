@@ -1,5 +1,5 @@
 ---
-image: { src: "../../ripped.png", alt: "Book design for a fake book." }
+img: "/ripped.png"
 type: book
 alt: "Book design for a fake book."
 ---
