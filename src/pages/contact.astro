@@ -20,10 +20,10 @@ const allPosts = await Astro.glob("./web-design/*.md");
     class="mt-8 bg-[var(--bg-secondary)] p-4 rounded-lg border border-[var(--border-gray)]">
     <p class="text-base font-medium">Contact Form</p>
     <form
-      method="POST"
-      class="flex mt-4 flex-col gap-4"
       name="contact"
-      data-netlify="true">
+      method="POST"
+      data-netlify="true"
+      class="flex mt-4 flex-col gap-4">
       <div class="flex gap-4 lg:flex-row flex-col">
         <input
           class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
@@ -139,8 +139,6 @@ const allPosts = await Astro.glob("./web-design/*.md");
         copyButton.innerHTML = originalContent;
         copyButton.removeChild(copyButton.firstChild);
       }, 5000);
-
-      // Manually submit the form after the copy action
     });
   });
 </script>
