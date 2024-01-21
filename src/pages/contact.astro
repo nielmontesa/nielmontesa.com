@@ -66,6 +66,9 @@ const allPosts = await Astro.glob("./web-design/*.md");
 
 <script is:inline>
   document.addEventListener("astro:page-load", function () {
+    // Get the form element
+    var contactForm = document.forms.contact;
+
     // Get the button element
     var copyButton = document.getElementById("submit");
     var originalContent = copyButton.innerHTML;
@@ -73,8 +76,8 @@ const allPosts = await Astro.glob("./web-design/*.md");
     // Email to copy
     var emailToCopy = "design@nielmontesa.com";
 
-    // Add click event listener
-    copyButton.addEventListener("click", function (event) {
+    // Add submit event listener to the form
+    contactForm.addEventListener("submit", function (event) {
       // Check if form fields are filled
       var nameInput = document.querySelector('input[placeholder="Your name"]');
       var emailInput = document.querySelector(
@@ -89,7 +92,7 @@ const allPosts = await Astro.glob("./web-design/*.md");
         emailInput.value.trim() === "" ||
         messageInput.value.trim() === ""
       ) {
-        // If any of the fields is empty, do not proceed
+        // If any of the fields is empty, do not prevent default form submission
         return;
       }
 
