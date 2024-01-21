@@ -26,19 +26,22 @@ const allPosts = await Astro.glob("./web-design/*.md");
       class="flex mt-4 flex-col gap-4">
       <div class="flex gap-4 lg:flex-row flex-col">
         <input
+          name="Name"
           class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
           type="text"
           placeholder="Your name"
           required
         />
         <input
+          name="E-mail"
           class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
-          type="text"
+          type="email"
           placeholder="Your e-mail"
           required
         />
       </div>
       <textarea
+        name="Message"
         class="transition-all bg-[var(--button-gray)] p-2 rounded-md text-base outline-none hover:outline-[var(--border-gray)] active:outline-[var(--primary-gray)] focus:outline-[var(--border-gray)]"
         required
         rows="10"
