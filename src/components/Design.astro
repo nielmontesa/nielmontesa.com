@@ -1,14 +1,14 @@
 ---
 const { post } = Astro.props;
 
-const { alt, img, url } = post.frontmatter;
+const { alt, img, url, caption } = post.frontmatter;
 
 console.log(alt);
 import { Picture } from "astro:assets";
 ---
 
 <div class="opacity-60 hover:opacity-100 transition-all">
-  <a href={img} target="_blank" data-fancybox>
+  <a href={img} target="_blank" data-fancybox data-caption={caption}>
     <Picture
       class="rounded border border-[var(--border-gray)] w-100"
       src={img}
