@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import myImage from "../../public/about.jpg";
 ---
 
 <MainLayout title="Niel Montesa - Designer & Developer">
@@ -30,9 +32,9 @@ import MainLayout from "../layouts/MainLayout.astro";
       > page for irregular updates on whatever I’m obsessed with at the moment.
     </p> -->
 
-    <img
-      src="about.jpg"
-      alt="Portrait of Me"
+    <Image
+      src={myImage}
+      alt="An image of Niel."
       class="rounded-md mt-4 opacity-40 hover:opacity-100 transition-all"
     />
   </div>
