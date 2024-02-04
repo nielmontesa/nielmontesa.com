@@ -33,11 +33,21 @@ const bookPosts = await Astro.glob("./designs/*.md");
   </div> -->
 
   <div>
-    <p class="mt-16 text-xs text-[var(--ternary-gray)] uppercase font-normal">
+    <p
+      class="mt-16 text-xs text-[var(--ternary-gray)] uppercase font-normal mb-4">
       Featured Graphic Design Work
     </p>
-    <div class="mt-4 columns-1 lg:columns-2 gap-2 max-w-[100%]">
-      {bookPosts.map((post) => <Design {post} />)}
+    <div class="columns-1 lg:columns-2 gap-2 max-w-[100%]">
+      {
+        bookPosts.map((post) => {
+          if (
+            post.frontmatter.type == "book" ||
+            post.frontmatter.type == "merch"
+          ) {
+            return <Design {post} />;
+          }
+        })
+      }
     </div>
   </div>
 </MainLayout>

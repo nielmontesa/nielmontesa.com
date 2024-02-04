@@ -1,6 +1,6 @@
 ---
 alt: "Book design for a fake book."
-img: "/leg.png"
+img: "/noone.png"
 type: book
 caption: "Conceptual design for a book."
 ---
