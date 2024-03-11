@@ -6,12 +6,12 @@ html {
 
 body {
   --bg-primary: #ffffff;
-  --bg-secondary: rgb(239, 239, 239);
+  --bg-secondary: #f9f9f9;
   --white-primary: #242424;
   --ternary-gray: #383838;
   --border-gray: #dedede;
   --primary-gray: #878787;
-  --button-gray: #e6e6e6;
+  --button-gray: #e9e9e9;
 
   font-family: "Aileron";
   color: var(--white-primary);
