@@ -6,22 +6,19 @@ import { Icon } from "astro-icon/components";
 <style>
   .active {
     background-color: var(--button-gray);
-    color: var(--primary-white);
-    box-shadow:
-      0px 0px 2px 1px rgba(0, 0, 0, 0.05) inset,
-      0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-    border: 1px solid #3c3c3c;
+    color: #242424;
+    border: 1px solid #d5d5d5;
   }
 
   a:active {
-    color: var(--ternary-gray);
+    color: #818181;
   }
 </style>
 
 <li class="">
   <a
     class="flex items-center gap-2 w-full text-[var(--primary-gray)] font-normal hover:text-[var(--primary-white)] p-2 rounded-lg
-    active:[var(--ternary-gray)] border border-[var(--bg-secondary)] transition-all"
+    active:[var(--primary-white)] border border-[var(--bg-secondary)] transition-all"
     href={link}
     target={target}>
     <Icon name={icon} class="inline bg-inherit" />

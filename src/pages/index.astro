@@ -14,9 +14,9 @@ const bookPosts = await Astro.glob("./designs/*.md");
     Hello stranger, I'm Niel. <br />
   </h1>
   <p class="text-base leading-7 mt-4 text-[var(--ternary-gray)] xl:w-3/4">
-    I am a freelance designer and developer ready to help you grow yourself or
-    your business through beautiful and effective design. I can help you with
-    web design, social media graphics, book covers, and posters. <br />
+    I am a freelance graphic designer ready to help you grow yourself and your
+    business through beautiful and effective design. I can help you with social
+    media graphics, book covers, and posters. <br />
   </p>
 
   <div class="buttons mt-6 flex gap-2">
@@ -40,10 +40,7 @@ const bookPosts = await Astro.glob("./designs/*.md");
     <div class="columns-1 lg:columns-2 gap-2 max-w-[100%]">
       {
         bookPosts.map((post) => {
-          if (
-            post.frontmatter.type == "book" ||
-            post.frontmatter.type == "merch"
-          ) {
+          if (post.frontmatter.featured == true) {
             return <Design {post} />;
           }
         })

@@ -5,15 +5,15 @@ html {
 }
 
 body {
-  --bg-primary: #161616;
-  --bg-secondary: #1c1c1c;
-  --white-primary: #e7e7e7;
-  --ternary-gray: #939393;
-  --border-gray: #262626;
-  --primary-gray: #6a6a6a;
-  --button-gray: #2b2b2b;
+  --bg-primary: #ffffff;
+  --bg-secondary: rgb(239, 239, 239);
+  --white-primary: #242424;
+  --ternary-gray: #383838;
+  --border-gray: #dedede;
+  --primary-gray: #878787;
+  --button-gray: #e6e6e6;
 
-  font-family: "Inter";
+  font-family: "Aileron";
   color: var(--white-primary);
   background-color: var(--bg-primary);
 }
@@ -59,7 +59,7 @@ article h1 {
   line-height: 44px;
 }
 article p {
-  color: #dfdede;
+  color: #313131;
   line-height: 28px;
   margin-bottom: 16px;
 }
@@ -71,5 +71,5 @@ article img {
 article ul {
   list-style: disc;
   padding-left: 32px;
-  color: #dfdede;
+  color: #313131;
 }

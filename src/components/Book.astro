@@ -6,15 +6,15 @@ const { bookTitle, bookAuthor, bookCover, bookDesc, grLink } = Astro.props;
 
 <a href={grLink} target="_blank"
   ><div
-    class="rounded-[12px] p-[2px] shadow-md hover:shadow-gray-100/5 my-6 hvr-grow card mouse-cursor-gradient-tracking">
+    class="rounded-[12px] p-[2px] hover:shadow-gray-100/5 my-6 hvr-grow card mouse-cursor-gradient-tracking">
     <div
       class="bg-[var(--card-gray)]
-    border-[#202020]
+    border-[#c5c5c5]
     border-[1px]
     rounded-lg
     p-6 flex gap-6">
       <div class="flex flex-col gap-2">
-        <h3 class="text-4xl text-white mb-auto">{bookTitle}</h3>
+        <h3 class="text-4xl text-[#313131] mb-auto">{bookTitle}</h3>
         <small class="text-sm uppercase tracking-wider">by {bookAuthor}</small>
         <p class="mt-auto text-sm">{bookDesc}</p>
       </div>

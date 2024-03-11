@@ -1,6 +1,7 @@
 ---
-alt: "Book design for a fake book."
-img: "/noone.png"
+img: "/between.png"
 type: book
-caption: "Conceptual design for a book."
+featured: false
+alt: "Instagram post design for ShineBright."
+caption: " Conceptual cover for a fake book. "
 ---
